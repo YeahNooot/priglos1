@@ -1,0 +1,2237 @@
+@import "tailwindcss";
+
+/* ═══════════════════════════════════════════════════════
+   СВАДЕБНЫЙ САЙТ — ПОЛНЫЕ СТИЛИ
+   Андрей & Полина | 27.07.2027 | Рязань
+   ═══════════════════════════════════════════════════════ */
+
+/* ─── CSS ПЕРЕМЕННЫЕ ─── */
+:root {
+  --color-bg-primary: #FAFAF8;
+  --color-bg-secondary: #FFF9F0;
+  --color-bg-tertiary: #F5F0EB;
+  --color-text-primary: #1A1A1A;
+  --color-text-secondary: #0D0D0D;
+  --color-text-muted: #6B6B6B;
+  --color-gold: #C9A96E;
+  --color-gold-bright: #D4AF37;
+  --color-gold-light: #E8D5A3;
+  --color-rose: #D4A0A0;
+  --color-rose-light: #F0D4D4;
+  --color-rose-dark: #B87777;
+  --color-white: #FFFFFF;
+  --color-cream: #FFFDF7;
+  
+  --font-display: 'Playfair Display', serif;
+  --font-heading: 'Cormorant Garamond', serif;
+  --font-body: 'Montserrat', sans-serif;
+  --font-script: 'Great Vibes', cursive;
+  
+  --perspective-deep: 2000px;
+  --perspective-medium: 1200px;
+  --perspective-shallow: 800px;
+  
+  --transition-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --transition-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --transition-elegant: cubic-bezier(0.4, 0, 0.2, 1);
+  
+  --shadow-soft: 0 4px 20px rgba(201, 169, 110, 0.1);
+  --shadow-medium: 0 8px 40px rgba(201, 169, 110, 0.15);
+  --shadow-heavy: 0 16px 60px rgba(201, 169, 110, 0.2);
+  --shadow-gold: 0 0 30px rgba(201, 169, 110, 0.3);
+  --shadow-rose: 0 0 30px rgba(212, 160, 160, 0.3);
+}
+
+/* ─── БАЗОВЫЕ СТИЛИ ─── */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ─── КАСТОМНЫЙ СКРОЛЛБАР ─── */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-tertiary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--color-gold), var(--color-rose));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--color-gold-bright), var(--color-rose-dark));
+}
+
+/* ─── ТИПОГРАФИКА ─── */
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-heading {
+  font-family: var(--font-heading);
+}
+
+.font-script {
+  font-family: var(--font-script);
+}
+
+.font-body {
+  font-family: var(--font-body);
+}
+
+.text-gold {
+  color: var(--color-gold);
+}
+
+.text-rose {
+  color: var(--color-rose);
+}
+
+.bg-gold {
+  background-color: var(--color-gold);
+}
+
+.bg-rose {
+  background-color: var(--color-rose);
+}
+
+/* ─── 3D КОНТЕЙНЕРЫ ─── */
+.perspective-container {
+  perspective: var(--perspective-deep);
+  perspective-origin: center center;
+  transform-style: preserve-3d;
+}
+
+.perspective-medium {
+  perspective: var(--perspective-medium);
+  perspective-origin: center center;
+  transform-style: preserve-3d;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+/* ─── GLASSMORPHISM ─── */
+.glass {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+}
+
+.glass-gold {
+  background: rgba(201, 169, 110, 0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(201, 169, 110, 0.2);
+  border-radius: 16px;
+}
+
+.glass-dark {
+  background: rgba(26, 26, 26, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(201, 169, 110, 0.15);
+  border-radius: 16px;
+}
+
+/* ─── ЗОЛОТЫЕ ЛИНИИ И РАЗДЕЛИТЕЛИ ─── */
+.gold-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+  margin: 2rem auto;
+  width: 60%;
+  max-width: 400px;
+}
+
+.gold-divider-wide {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-gold), var(--color-gold-bright), var(--color-gold), transparent);
+  margin: 3rem auto;
+  width: 80%;
+  max-width: 600px;
+}
+
+.ornament-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem auto;
+}
+
+.ornament-divider::before,
+.ornament-divider::after {
+  content: '';
+  height: 1px;
+  width: 100px;
+  background: linear-gradient(90deg, transparent, var(--color-gold));
+}
+
+.ornament-divider::after {
+  background: linear-gradient(90deg, var(--color-gold), transparent);
+}
+
+/* ─── КНОПКИ ─── */
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2.5rem;
+  background: linear-gradient(135deg, var(--color-gold), var(--color-gold-bright));
+  color: var(--color-white);
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s var(--transition-smooth);
+  box-shadow: var(--shadow-medium);
+}
+
+.btn-gold::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--color-gold-bright), var(--color-gold));
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.btn-gold:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-heavy), var(--shadow-gold);
+}
+
+.btn-gold:hover::before {
+  opacity: 1;
+}
+
+.btn-gold span {
+  position: relative;
+  z-index: 1;
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2.5rem;
+  background: transparent;
+  color: var(--color-gold);
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: 2px solid var(--color-gold);
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.4s var(--transition-smooth);
+}
+
+.btn-outline:hover {
+  background: var(--color-gold);
+  color: var(--color-white);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-gold);
+}
+
+/* ─── МАГНИТНЫЕ КНОПКИ ─── */
+.magnetic-btn {
+  transition: transform 0.3s var(--transition-elegant);
+  will-change: transform;
+}
+
+/* ─── АНИМАЦИИ KEYFRAMES ─── */
+
+/* Пульсация золота */
+@keyframes pulseGold {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(201, 169, 110, 0.2);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(201, 169, 110, 0.4);
+    transform: scale(1.02);
+  }
+}
+
+/* Мерцание */
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* Парение */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  25% { transform: translateY(-10px) rotate(1deg); }
+  50% { transform: translateY(-20px) rotate(0deg); }
+  75% { transform: translateY(-10px) rotate(-1deg); }
+}
+
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px) translateX(0px); }
+  33% { transform: translateY(-15px) translateX(5px); }
+  66% { transform: translateY(-8px) translateX(-5px); }
+}
+
+@keyframes floatReverse {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  25% { transform: translateY(10px) rotate(-1deg); }
+  50% { transform: translateY(20px) rotate(0deg); }
+  75% { transform: translateY(10px) rotate(1deg); }
+}
+
+/* Вращение */
+@keyframes rotate360 {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes rotateReverse {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+@keyframes rotateY360 {
+  from { transform: rotateY(0deg); }
+  to { transform: rotateY(360deg); }
+}
+
+/* Масштабирование */
+@keyframes breathe {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.05); opacity: 1; }
+}
+
+@keyframes breatheSlow {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+}
+
+/* Появление */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Печатная машинка */
+@keyframes typewriter {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  0%, 50% { border-color: var(--color-gold); }
+  51%, 100% { border-color: transparent; }
+}
+
+/* Лепестки */
+@keyframes petalFall {
+  0% {
+    transform: translateY(-100vh) rotate(0deg) translateX(0);
+    opacity: 1;
+  }
+  25% {
+    transform: translateY(-50vh) rotate(90deg) translateX(30px);
+    opacity: 0.9;
+  }
+  50% {
+    transform: translateY(0vh) rotate(180deg) translateX(-20px);
+    opacity: 0.7;
+  }
+  75% {
+    transform: translateY(50vh) rotate(270deg) translateX(40px);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg) translateX(10px);
+    opacity: 0;
+  }
+}
+
+@keyframes petalSway {
+  0%, 100% { transform: translateX(0) rotate(0deg); }
+  25% { transform: translateX(20px) rotate(5deg); }
+  50% { transform: translateX(-10px) rotate(-3deg); }
+  75% { transform: translateX(15px) rotate(3deg); }
+}
+
+/* Светлячки */
+@keyframes firefly {
+  0%, 100% {
+    opacity: 0;
+    transform: translate(0, 0) scale(0.5);
+  }
+  10% {
+    opacity: 1;
+    transform: translate(10px, -10px) scale(1);
+  }
+  30% {
+    opacity: 0.8;
+    transform: translate(-20px, -30px) scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(30px, -20px) scale(1.2);
+  }
+  70% {
+    opacity: 0.6;
+    transform: translate(-10px, -40px) scale(0.9);
+  }
+  90% {
+    opacity: 0.3;
+    transform: translate(20px, -10px) scale(0.7);
+  }
+}
+
+/* Звёзды */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+@keyframes twinkleFast {
+  0%, 100% { opacity: 0.2; }
+  25% { opacity: 1; }
+  50% { opacity: 0.4; }
+  75% { opacity: 0.9; }
+}
+
+/* Конфетти */
+@keyframes confettiFall {
+  0% {
+    transform: translateY(-100%) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+/* Градиентный фон */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes gradientPulse {
+  0%, 100% {
+    background: radial-gradient(ellipse at center, rgba(201, 169, 110, 0.05) 0%, transparent 70%);
+  }
+  50% {
+    background: radial-gradient(ellipse at center, rgba(201, 169, 110, 0.12) 0%, transparent 70%);
+  }
+}
+
+/* Кольца */
+@keyframes ringRotate {
+  from { transform: rotateX(60deg) rotateZ(0deg); }
+  to { transform: rotateX(60deg) rotateZ(360deg); }
+}
+
+@keyframes ringPulse {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.1); opacity: 1; }
+}
+
+/* Волна */
+@keyframes wave {
+  0% { transform: translateX(0) translateZ(0); }
+  50% { transform: translateX(-25%) translateZ(10px); }
+  100% { transform: translateX(-50%) translateZ(0); }
+}
+
+/* Свечение */
+@keyframes glow {
+  0%, 100% {
+    text-shadow: 0 0 10px rgba(201, 169, 110, 0.3), 0 0 20px rgba(201, 169, 110, 0.2);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(201, 169, 110, 0.5), 0 0 40px rgba(201, 169, 110, 0.3), 0 0 60px rgba(201, 169, 110, 0.1);
+  }
+}
+
+@keyframes glowRose {
+  0%, 100% {
+    text-shadow: 0 0 10px rgba(212, 160, 160, 0.3), 0 0 20px rgba(212, 160, 160, 0.2);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(212, 160, 160, 0.5), 0 0 40px rgba(212, 160, 160, 0.3);
+  }
+}
+
+/* Спираль */
+@keyframes spiralIn {
+  0% {
+    transform: rotate(0deg) scale(0) translateX(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: rotate(720deg) scale(1) translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Барабан (slot machine) */
+@keyframes slotSpin {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-100%); }
+}
+
+/* Lens flare */
+@keyframes lensFlare {
+  0%, 100% { opacity: 0; transform: scale(0.5); }
+  50% { opacity: 0.8; transform: scale(1.5); }
+}
+
+/* Ripple */
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* Morph */
+@keyframes morphBlob {
+  0%, 100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+  25% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+  }
+  50% {
+    border-radius: 50% 60% 30% 60% / 30% 60% 70% 40%;
+  }
+  75% {
+    border-radius: 60% 40% 60% 30% / 60% 40% 30% 70%;
+  }
+}
+
+/* Tunnel */
+@keyframes tunnelZoom {
+  0% { transform: scale(0.1) rotate(0deg); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: scale(2) rotate(180deg); opacity: 0; }
+}
+
+/* Shake */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+  20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+/* Slide in from various directions */
+@keyframes slideInFromLeft {
+  from { transform: translateX(-100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInFromRight {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInFromTop {
+  from { transform: translateY(-100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideInFromBottom {
+  from { transform: translateY(100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Rotate and scale */
+@keyframes rotateScale {
+  0% { transform: rotate(0deg) scale(0); opacity: 0; }
+  50% { transform: rotate(180deg) scale(1.2); opacity: 0.8; }
+  100% { transform: rotate(360deg) scale(1); opacity: 1; }
+}
+
+/* Background breathing */
+@keyframes bgBreathe {
+  0%, 100% {
+    background-color: var(--color-bg-primary);
+  }
+  33% {
+    background-color: var(--color-bg-secondary);
+  }
+  66% {
+    background-color: var(--color-bg-tertiary);
+  }
+}
+
+/* Text reveal */
+@keyframes textReveal {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes textRevealUp {
+  from {
+    clip-path: inset(100% 0 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+/* Particle drift */
+@keyframes drift {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(50px, -30px) rotate(90deg); }
+  50% { transform: translate(20px, -60px) rotate(180deg); }
+  75% { transform: translate(-30px, -40px) rotate(270deg); }
+  100% { transform: translate(0, 0) rotate(360deg); }
+}
+
+/* Sparkle */
+@keyframes sparkle {
+  0%, 100% { opacity: 0; transform: scale(0) rotate(0deg); }
+  50% { opacity: 1; transform: scale(1) rotate(180deg); }
+}
+
+/* ─── УТИЛИТАРНЫЕ КЛАССЫ АНИМАЦИЙ ─── */
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: floatSlow 8s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: floatReverse 7s ease-in-out infinite;
+}
+
+.animate-breathe {
+  animation: breathe 4s ease-in-out infinite;
+}
+
+.animate-breathe-slow {
+  animation: breatheSlow 6s ease-in-out infinite;
+}
+
+.animate-rotate {
+  animation: rotate360 20s linear infinite;
+}
+
+.animate-rotate-reverse {
+  animation: rotateReverse 25s linear infinite;
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(201, 169, 110, 0.3), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 3s ease-in-out infinite;
+}
+
+.animate-glow-rose {
+  animation: glowRose 3s ease-in-out infinite;
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradientShift 8s ease infinite;
+}
+
+.animate-pulse-gold {
+  animation: pulseGold 3s ease-in-out infinite;
+}
+
+.animate-twinkle {
+  animation: twinkle 3s ease-in-out infinite;
+}
+
+.animate-morph {
+  animation: morphBlob 8s ease-in-out infinite;
+}
+
+/* ─── СЕКЦИИ ─── */
+.section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  overflow: hidden;
+}
+
+.section-content {
+  position: relative;
+  z-index: 10;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* ─── ПРЕЛОАДЕР ─── */
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--color-bg-primary), var(--color-bg-secondary));
+  transition: opacity 1s ease, visibility 1s ease;
+}
+
+.preloader.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.preloader-rings {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  transform-style: preserve-3d;
+  animation: rotateY360 4s linear infinite;
+}
+
+.preloader-ring {
+  position: absolute;
+  inset: 0;
+  border: 3px solid var(--color-gold);
+  border-radius: 50%;
+  animation: ringPulse 2s ease-in-out infinite;
+}
+
+.preloader-ring:nth-child(2) {
+  transform: rotateX(60deg);
+  border-color: var(--color-rose);
+  animation-delay: 0.3s;
+}
+
+.preloader-ring:nth-child(3) {
+  transform: rotateY(60deg);
+  border-color: var(--color-gold-light);
+  animation-delay: 0.6s;
+}
+
+.preloader-text {
+  margin-top: 2rem;
+  font-family: var(--font-script);
+  font-size: 2.5rem;
+  color: var(--color-gold);
+  animation: glow 2s ease-in-out infinite;
+}
+
+.preloader-progress {
+  margin-top: 1.5rem;
+  width: 200px;
+  height: 3px;
+  background: rgba(201, 169, 110, 0.2);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.preloader-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-gold), var(--color-rose));
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.preloader-countdown {
+  margin-top: 1rem;
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  color: var(--color-text-muted);
+  letter-spacing: 0.2em;
+}
+
+/* ─── КАСТОМНЫЙ КУРСОР ─── */
+.custom-cursor {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--color-gold), transparent);
+  pointer-events: none;
+  z-index: 99998;
+  mix-blend-mode: screen;
+  transition: transform 0.1s ease;
+  will-change: transform;
+}
+
+.cursor-trail {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-gold);
+  pointer-events: none;
+  z-index: 99997;
+  opacity: 0.5;
+  transition: all 0.3s ease;
+  will-change: transform, opacity;
+}
+
+/* ─── HERO СЕКЦИЯ ─── */
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: linear-gradient(180deg, var(--color-bg-primary) 0%, var(--color-bg-secondary) 50%, var(--color-bg-primary) 100%);
+}
+
+.hero-canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  padding: 2rem;
+}
+
+.hero-names {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 8vw, 8rem);
+  font-weight: 700;
+  color: var(--color-text-secondary);
+  line-height: 1.1;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.hero-names .ampersand {
+  font-family: var(--font-script);
+  color: var(--color-gold);
+  font-size: 0.7em;
+  display: inline-block;
+  margin: 0 0.3em;
+  animation: breathe 4s ease-in-out infinite;
+}
+
+.hero-date {
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 3vw, 3rem);
+  font-weight: 300;
+  color: var(--color-gold);
+  letter-spacing: 0.3em;
+  margin-top: 1rem;
+}
+
+.hero-subtitle {
+  font-family: var(--font-body);
+  font-size: clamp(0.9rem, 1.5vw, 1.2rem);
+  font-weight: 300;
+  color: var(--color-text-muted);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-top: 2rem;
+}
+
+.hero-scroll-indicator {
+  position: absolute;
+  bottom: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+.hero-scroll-indicator span {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.scroll-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(180deg, var(--color-gold), transparent);
+  animation: float 2s ease-in-out infinite;
+}
+
+/* ─── TIMELINE СЕКЦИЯ ─── */
+.timeline-section {
+  position: relative;
+  padding: 8rem 2rem;
+  background: var(--color-bg-primary);
+}
+
+.timeline-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 5rem);
+  text-align: center;
+  margin-bottom: 4rem;
+  color: var(--color-text-secondary);
+}
+
+.timeline-container {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.timeline-line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, transparent, var(--color-gold), var(--color-rose), var(--color-gold), transparent);
+  transform: translateX(-50%);
+}
+
+.timeline-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 4rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s var(--transition-smooth);
+}
+
+.timeline-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.timeline-item:nth-child(odd) {
+  flex-direction: row;
+  padding-right: calc(50% + 2rem);
+  text-align: right;
+}
+
+.timeline-item:nth-child(even) {
+  flex-direction: row-reverse;
+  padding-left: calc(50% + 2rem);
+  text-align: left;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--color-gold);
+  border: 3px solid var(--color-bg-primary);
+  box-shadow: 0 0 20px rgba(201, 169, 110, 0.4);
+  z-index: 2;
+}
+
+.timeline-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(201, 169, 110, 0.15);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: all 0.4s var(--transition-smooth);
+  transform-style: preserve-3d;
+}
+
+.timeline-card:hover {
+  transform: translateY(-5px) rotateX(2deg) rotateY(-2deg);
+  box-shadow: var(--shadow-heavy);
+  border-color: rgba(201, 169, 110, 0.3);
+}
+
+.timeline-year {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  color: var(--color-gold);
+  margin-bottom: 0.5rem;
+}
+
+.timeline-event {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.timeline-description {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+/* ─── ПРИГЛАШЕНИЕ ─── */
+.invitation-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6rem 2rem;
+  background: linear-gradient(180deg, var(--color-bg-secondary), var(--color-bg-primary));
+}
+
+.invitation-envelope {
+  position: relative;
+  width: 100%;
+  max-width: 700px;
+  perspective: var(--perspective-deep);
+}
+
+.envelope-body {
+  position: relative;
+  background: var(--color-cream);
+  border: 2px solid rgba(201, 169, 110, 0.3);
+  border-radius: 8px;
+  padding: 4rem 3rem;
+  box-shadow: var(--shadow-heavy);
+  transform-style: preserve-3d;
+  transition: transform 0.8s var(--transition-smooth);
+}
+
+.envelope-body:hover {
+  transform: rotateX(2deg) rotateY(-1deg);
+}
+
+.envelope-flap {
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  height: 50%;
+  background: linear-gradient(135deg, var(--color-cream), #FFF5E6);
+  border: 2px solid rgba(201, 169, 110, 0.3);
+  border-radius: 8px 8px 0 0;
+  transform-origin: top center;
+  transition: transform 1s var(--transition-smooth);
+  z-index: 5;
+  clip-path: polygon(0 0, 50% 60%, 100% 0);
+}
+
+.envelope-flap.open {
+  transform: rotateX(180deg);
+}
+
+.invitation-text {
+  font-family: var(--font-heading);
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  line-height: 2;
+  color: var(--color-text-primary);
+  text-align: center;
+}
+
+.invitation-text .highlight {
+  color: var(--color-gold);
+  font-weight: 600;
+}
+
+.invitation-names {
+  font-family: var(--font-script);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: var(--color-gold);
+  text-align: center;
+  margin: 2rem 0;
+  animation: glow 3s ease-in-out infinite;
+}
+
+/* ─── ДЕТАЛИ СВАДЬБЫ ─── */
+.details-section {
+  position: relative;
+  padding: 8rem 2rem;
+  background: var(--color-bg-primary);
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.detail-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(201, 169, 110, 0.15);
+  border-radius: 20px;
+  padding: 2.5rem;
+  text-align: center;
+  transition: all 0.5s var(--transition-smooth);
+  transform-style: preserve-3d;
+  position: relative;
+  overflow: hidden;
+}
+
+.detail-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(201, 169, 110, 0.05), transparent);
+  transition: left 0.6s ease;
+}
+
+.detail-card:hover::before {
+  left: 100%;
+}
+
+.detail-card:hover {
+  transform: translateY(-10px) rotateX(3deg);
+  box-shadow: var(--shadow-heavy);
+  border-color: rgba(201, 169, 110, 0.3);
+}
+
+.detail-icon {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  display: inline-block;
+  animation: float 4s ease-in-out infinite;
+}
+
+.detail-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 1rem;
+}
+
+.detail-text {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  line-height: 1.8;
+}
+
+/* ─── ТАЙМЕР ОБРАТНОГО ОТСЧЁТА ─── */
+.countdown-container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin: 3rem 0;
+}
+
+.countdown-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.countdown-drum {
+  width: 80px;
+  height: 100px;
+  background: linear-gradient(135deg, var(--color-cream), var(--color-bg-secondary));
+  border: 2px solid rgba(201, 169, 110, 0.3);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-gold);
+  box-shadow: var(--shadow-medium);
+  position: relative;
+  overflow: hidden;
+}
+
+.countdown-drum::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(201, 169, 110, 0.2);
+}
+
+.countdown-label {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--color-text-muted);
+}
+
+/* ─── ГАЛЕРЕЯ ─── */
+.gallery-section {
+  position: relative;
+  padding: 8rem 2rem;
+  background: linear-gradient(180deg, var(--color-bg-primary), var(--color-bg-tertiary));
+  overflow: hidden;
+}
+
+.gallery-carousel {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  height: 500px;
+  margin: 0 auto;
+  perspective: var(--perspective-deep);
+  transform-style: preserve-3d;
+}
+
+.gallery-item {
+  position: absolute;
+  width: 280px;
+  height: 380px;
+  left: 50%;
+  top: 50%;
+  margin-left: -140px;
+  margin-top: -190px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow-heavy);
+  transition: all 0.6s var(--transition-smooth);
+  border: 3px solid rgba(201, 169, 110, 0.3);
+  background: var(--color-cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery-item:hover {
+  transform: translateZ(50px) scale(1.1);
+  box-shadow: var(--shadow-heavy), var(--shadow-gold);
+  z-index: 100;
+}
+
+.gallery-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--color-bg-secondary), var(--color-rose-light));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-script);
+  font-size: 1.5rem;
+  color: var(--color-gold);
+}
+
+/* ─── RSVP ФОРМА ─── */
+.rsvp-section {
+  position: relative;
+  padding: 8rem 2rem;
+  background: var(--color-bg-primary);
+}
+
+.rsvp-form {
+  max-width: 600px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(201, 169, 110, 0.2);
+  border-radius: 24px;
+  padding: 3rem;
+  box-shadow: var(--shadow-heavy);
+  transform-style: preserve-3d;
+  transition: transform 0.5s var(--transition-smooth);
+}
+
+.rsvp-form:hover {
+  transform: rotateX(1deg) rotateY(-1deg);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.form-label {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.05em;
+}
+
+.form-input {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(201, 169, 110, 0.2);
+  border-radius: 12px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--color-text-primary);
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.form-input:focus {
+  border-color: var(--color-gold);
+  box-shadow: 0 0 20px rgba(201, 169, 110, 0.15);
+  background: var(--color-white);
+}
+
+.form-input::placeholder {
+  color: var(--color-text-muted);
+  opacity: 0.6;
+}
+
+.form-select {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(201, 169, 110, 0.2);
+  border-radius: 12px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--color-text-primary);
+  transition: all 0.3s ease;
+  outline: none;
+  appearance: none;
+  cursor: pointer;
+}
+
+.form-select:focus {
+  border-color: var(--color-gold);
+  box-shadow: 0 0 20px rgba(201, 169, 110, 0.15);
+}
+
+.form-textarea {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(201, 169, 110, 0.2);
+  border-radius: 12px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--color-text-primary);
+  transition: all 0.3s ease;
+  outline: none;
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form-textarea:focus {
+  border-color: var(--color-gold);
+  box-shadow: 0 0 20px rgba(201, 169, 110, 0.15);
+  background: var(--color-white);
+}
+
+/* ─── ФУТЕР ─── */
+.footer-section {
+  position: relative;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(180deg, var(--color-bg-primary), #1a1a1a);
+  overflow: hidden;
+}
+
+.footer-rings {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  margin-bottom: 2rem;
+  transform-style: preserve-3d;
+  animation: rotateY360 10s linear infinite;
+}
+
+.footer-ring {
+  position: absolute;
+  inset: 0;
+  border: 3px solid var(--color-gold);
+  border-radius: 50%;
+}
+
+.footer-ring:nth-child(2) {
+  transform: rotateX(70deg);
+  border-color: var(--color-rose);
+}
+
+.footer-message {
+  font-family: var(--font-script);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  color: var(--color-gold);
+  text-align: center;
+  animation: glow 4s ease-in-out infinite;
+  margin-bottom: 1rem;
+}
+
+.footer-submessage {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-align: center;
+  letter-spacing: 0.2em;
+}
+
+.footer-stars {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: var(--color-white);
+  border-radius: 50%;
+  animation: twinkle var(--duration, 3s) ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+}
+
+/* ─── ЧАСТИЦЫ (CSS-based) ─── */
+.particles-container {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.petal {
+  position: absolute;
+  width: 15px;
+  height: 20px;
+  background: var(--color-rose);
+  border-radius: 50% 0 50% 50%;
+  opacity: 0.6;
+  animation: petalFall var(--duration, 10s) linear infinite;
+  animation-delay: var(--delay, 0s);
+  left: var(--x, 50%);
+}
+
+.sparkle-particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--color-gold);
+  border-radius: 50%;
+  animation: sparkle var(--duration, 2s) ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+  left: var(--x, 50%);
+  top: var(--y, 50%);
+}
+
+.firefly-particle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: radial-gradient(circle, var(--color-gold-light), transparent);
+  border-radius: 50%;
+  animation: firefly var(--duration, 5s) ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+  left: var(--x, 50%);
+  top: var(--y, 50%);
+}
+
+/* ─── PARALLAX LAYERS ─── */
+.parallax-layer {
+  position: absolute;
+  inset: 0;
+  will-change: transform;
+  transition: transform 0.1s linear;
+}
+
+.parallax-layer-1 { transform: translateZ(-100px) scale(1.1); }
+.parallax-layer-2 { transform: translateZ(-80px) scale(1.08); }
+.parallax-layer-3 { transform: translateZ(-60px) scale(1.06); }
+.parallax-layer-4 { transform: translateZ(-40px) scale(1.04); }
+.parallax-layer-5 { transform: translateZ(-20px) scale(1.02); }
+.parallax-layer-6 { transform: translateZ(0px) scale(1); }
+.parallax-layer-7 { transform: translateZ(20px) scale(0.98); }
+.parallax-layer-8 { transform: translateZ(40px) scale(0.96); }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 768px) {
+  .hero-names {
+    font-size: clamp(2rem, 10vw, 4rem);
+  }
+  
+  .timeline-item:nth-child(odd),
+  .timeline-item:nth-child(even) {
+    padding-left: 2rem;
+    padding-right: 0;
+    text-align: left;
+    flex-direction: row;
+  }
+  
+  .timeline-line {
+    left: 1rem;
+  }
+  
+  .timeline-dot {
+    left: 1rem;
+  }
+  
+  .countdown-container {
+    gap: 1rem;
+  }
+  
+  .countdown-drum {
+    width: 60px;
+    height: 80px;
+    font-size: 2rem;
+  }
+  
+  .details-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .gallery-item {
+    width: 200px;
+    height: 280px;
+    margin-left: -100px;
+    margin-top: -140px;
+  }
+  
+  .envelope-body {
+    padding: 2rem 1.5rem;
+  }
+  
+  .rsvp-form {
+    padding: 2rem 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 3rem 1rem;
+  }
+  
+  .hero-names {
+    font-size: clamp(1.8rem, 12vw, 3rem);
+  }
+  
+  .countdown-drum {
+    width: 50px;
+    height: 65px;
+    font-size: 1.5rem;
+  }
+}
+
+/* ─── WEBGL CANVAS OVERLAYS ─── */
+.webgl-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.webgl-overlay canvas {
+  width: 100%;
+  height: 100%;
+}
+
+/* ─── SECTION TRANSITIONS ─── */
+.section-transition {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.transition-ring {
+  position: absolute;
+  border: 2px solid rgba(201, 169, 110, 0.2);
+  border-radius: 50%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  animation: tunnelZoom 4s ease-in-out infinite;
+}
+
+.transition-ring:nth-child(1) { width: 100px; height: 100px; animation-delay: 0s; }
+.transition-ring:nth-child(2) { width: 200px; height: 200px; animation-delay: 0.5s; }
+.transition-ring:nth-child(3) { width: 300px; height: 300px; animation-delay: 1s; }
+.transition-ring:nth-child(4) { width: 400px; height: 400px; animation-delay: 1.5s; }
+.transition-ring:nth-child(5) { width: 500px; height: 500px; animation-delay: 2s; }
+
+/* ─── CONFETTI ─── */
+.confetti-piece {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  top: -10px;
+  animation: confettiFall var(--duration, 3s) linear forwards;
+  animation-delay: var(--delay, 0s);
+  z-index: 99990;
+  pointer-events: none;
+}
+
+/* ─── MAGNETIC EFFECT ─── */
+.magnetic-area {
+  position: relative;
+  display: inline-block;
+  transition: transform 0.3s var(--transition-elegant);
+}
+
+/* ─── NOISE OVERLAY ─── */
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* ─── VIGNETTE ─── */
+.vignette-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9998;
+  background: radial-gradient(ellipse at center, transparent 50%, rgba(0, 0, 0, 0.1) 100%);
+}
+
+/* ─── DRESS CODE PALETTE ─── */
+.color-palette {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem 0;
+  flex-wrap: wrap;
+}
+
+.color-swatch {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 3px solid var(--color-white);
+  box-shadow: var(--shadow-soft);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.color-swatch:hover {
+  transform: scale(1.2) translateY(-5px);
+  box-shadow: var(--shadow-medium);
+}
+
+/* ─── PROGRAM TIMELINE ─── */
+.program-timeline {
+  position: relative;
+  max-width: 600px;
+  margin: 3rem auto;
+}
+
+.program-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid rgba(201, 169, 110, 0.1);
+  transition: all 0.3s ease;
+}
+
+.program-item:hover {
+  padding-left: 1rem;
+  background: rgba(201, 169, 110, 0.03);
+  border-radius: 8px;
+}
+
+.program-time {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  color: var(--color-gold);
+  min-width: 80px;
+  font-weight: 600;
+}
+
+.program-event-name {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 0.3rem;
+}
+
+.program-event-desc {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+.program-icon {
+  font-size: 1.5rem;
+  min-width: 40px;
+  text-align: center;
+}
+
+/* ═══════════════════════════════════════════════════════
+   ДОПОЛНИТЕЛЬНЫЕ ЭФФЕКТЫ И ПОЛИРОВКА
+   ═══════════════════════════════════════════════════════ */
+
+/* ─── Плавное появление секций ─── */
+.section-enter {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1s var(--transition-smooth);
+}
+
+.section-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── Эффект золотого мерцания на тексте ─── */
+.text-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--color-gold) 0%,
+    var(--color-gold-bright) 25%,
+    var(--color-gold-light) 50%,
+    var(--color-gold-bright) 75%,
+    var(--color-gold) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 4s linear infinite;
+}
+
+/* ─── Эффект печатной машинки ─── */
+.typewriter-text {
+  overflow: hidden;
+  border-right: 2px solid var(--color-gold);
+  white-space: nowrap;
+  animation: typewriter 3s steps(40) 1s forwards, blink 0.75s step-end infinite;
+  width: 0;
+}
+
+/* ─── 3D-карточка с тилт-эффектом ─── */
+.tilt-card {
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+}
+
+.tilt-card:hover {
+  transform: perspective(1000px) rotateX(5deg) rotateY(-5deg) translateZ(20px);
+}
+
+.tilt-card-inner {
+  transform: translateZ(30px);
+}
+
+/* ─── Пульсирующая рамка ─── */
+.pulse-border {
+  position: relative;
+  border: 1px solid rgba(201, 169, 110, 0.3);
+  border-radius: 16px;
+}
+
+.pulse-border::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border: 1px solid rgba(201, 169, 110, 0.1);
+  border-radius: 18px;
+  animation: pulseGold 3s ease-in-out infinite;
+}
+
+/* ─── Эффект размытия при скролле ─── */
+.blur-on-scroll {
+  transition: filter 0.5s ease;
+}
+
+.blur-on-scroll.blurred {
+  filter: blur(5px);
+}
+
+/* ─── Анимация появления букв ─── */
+.letter-reveal span {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(20px) rotateX(-90deg);
+  animation: letterIn 0.5s ease forwards;
+}
+
+@keyframes letterIn {
+  to {
+    opacity: 1;
+    transform: translateY(0) rotateX(0deg);
+  }
+}
+
+/* ─── Градиентная рамка ─── */
+.gradient-border {
+  position: relative;
+  background: var(--color-white);
+  border-radius: 16px;
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, var(--color-gold), var(--color-rose), var(--color-gold));
+  z-index: -1;
+  animation: gradientShift 4s ease infinite;
+  background-size: 200% 200%;
+}
+
+/* ─── Анимация волн ─── */
+.wave-bg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 200%;
+  height: 100px;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 50px,
+    rgba(201, 169, 110, 0.03) 50px,
+    rgba(201, 169, 110, 0.03) 100px
+  );
+  animation: wave 10s linear infinite;
+}
+
+/* ─── Hover-эффект для ссылок ─── */
+.gold-link {
+  position: relative;
+  color: var(--color-gold);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.gold-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--color-gold);
+  transition: width 0.3s ease;
+}
+
+.gold-link:hover::after {
+  width: 100%;
+}
+
+/* ─── Эффект матового стекла ─── */
+.frosted-glass {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* ─── Анимация появления с задержкой ─── */
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
+.stagger-6 { animation-delay: 0.6s; }
+.stagger-7 { animation-delay: 0.7s; }
+.stagger-8 { animation-delay: 0.8s; }
+
+/* ─── Эффект параллакса при наведении ─── */
+.hover-parallax {
+  transition: transform 0.4s var(--transition-elegant);
+}
+
+.hover-parallax:hover {
+  transform: perspective(1000px) rotateX(2deg) rotateY(-2deg) scale(1.02);
+}
+
+/* ─── Золотая линия-разделитель с анимацией ─── */
+.animated-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+  position: relative;
+  overflow: hidden;
+}
+
+.animated-divider::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+/* ─── Плавающие декоративные элементы ─── */
+.float-decoration {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0.1;
+}
+
+/* ─── Эффект глубины для текста ─── */
+.text-depth {
+  text-shadow: 
+    0 1px 0 rgba(201, 169, 110, 0.1),
+    0 2px 0 rgba(201, 169, 110, 0.08),
+    0 3px 0 rgba(201, 169, 110, 0.06),
+    0 4px 0 rgba(201, 169, 110, 0.04),
+    0 5px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* ─── Анимация пульсации для иконок ─── */
+.icon-pulse {
+  animation: pulseGold 2s ease-in-out infinite;
+}
+
+/* ─── Эффект морфинга для декоративных элементов ─── */
+.morph-decoration {
+  animation: morphBlob 10s ease-in-out infinite;
+  background: linear-gradient(135deg, rgba(201, 169, 110, 0.1), rgba(212, 160, 160, 0.1));
+}
+
+/* ─── Скролл-индикатор с анимацией ─── */
+.scroll-progress-ring {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 50px;
+  height: 50px;
+  z-index: 9990;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.scroll-progress-ring:hover {
+  opacity: 1;
+}
+
+/* ─── Декоративная сетка ─── */
+.decorative-grid {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(201, 169, 110, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201, 169, 110, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  pointer-events: none;
+}
+
+/* ─── Эффект свечения для контейнеров ─── */
+.glow-container {
+  position: relative;
+}
+
+.glow-container::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, var(--color-gold), var(--color-rose));
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+  filter: blur(8px);
+}
+
+.glow-container:hover::before {
+  opacity: 0.3;
+}
+
+/* ─── Анимация раскрытия ─── */
+.reveal-up {
+  clip-path: inset(100% 0 0 0);
+  transition: clip-path 0.8s var(--transition-smooth);
+}
+
+.reveal-up.revealed {
+  clip-path: inset(0 0 0 0);
+}
+
+.reveal-left {
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 0.8s var(--transition-smooth);
+}
+
+.reveal-left.revealed {
+  clip-path: inset(0 0 0 0);
+}
+
+/* ─── Эффект печатной машинки для курсора ─── */
+.typing-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.2em;
+  background: var(--color-gold);
+  margin-left: 2px;
+  animation: blink 0.8s step-end infinite;
+  vertical-align: text-bottom;
+}
+
+/* ─── Эффект появления с масштабированием ─── */
+.scale-reveal {
+  transform: scale(0.8);
+  opacity: 0;
+  transition: all 0.6s var(--transition-bounce);
+}
+
+.scale-reveal.visible {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* ─── Декоративный орнамент ─── */
+.ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.ornament-line {
+  height: 1px;
+  flex: 1;
+  max-width: 100px;
+  background: linear-gradient(90deg, transparent, var(--color-gold));
+}
+
+.ornament-line:last-child {
+  background: linear-gradient(90deg, var(--color-gold), transparent);
+}
+
+.ornament-diamond {
+  width: 8px;
+  height: 8px;
+  background: var(--color-gold);
+  transform: rotate(45deg);
+  opacity: 0.6;
+}
+
+/* ─── Анимация для фонового градиента ─── */
+.bg-gradient-animated {
+  background: linear-gradient(
+    135deg,
+    var(--color-bg-primary) 0%,
+    var(--color-bg-secondary) 25%,
+    var(--color-bg-primary) 50%,
+    var(--color-bg-tertiary) 75%,
+    var(--color-bg-primary) 100%
+  );
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+}
+
+/* ─── Эффект парения для элементов ─── */
+.float-gentle {
+  animation: floatSlow 8s ease-in-out infinite;
+}
+
+.float-medium {
+  animation: float 6s ease-in-out infinite;
+}
+
+.float-active {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* ─── Медиа-запросы для дополнительных эффектов ─── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-names {
+    letter-spacing: -0.01em;
+  }
+  
+  .gallery-carousel {
+    height: 350px;
+  }
+  
+  .footer-message {
+    font-size: 1.8rem;
+  }
+}
+
+/* ─── Дополнительные утилиты ─── */
+.tracking-widest-custom {
+  letter-spacing: 0.4em;
+}
+
+.line-height-relaxed {
+  line-height: 2.2;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+/* ─── Эффект «дыхания» для фона секций ─── */
+.section-breathing {
+  animation: gradientPulse 8s ease-in-out infinite;
+}
+
+/* ─── Анимация для переходов между секциями ─── */
+.section-fade {
+  mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+}
+
+/* ─── Декоративный SVG-орнамент ─── */
+.svg-ornament {
+  display: inline-block;
+  opacity: 0.4;
+  color: var(--color-gold);
+}
+
+/* ─── Эффект «жидкости» для инпутов ─── */
+.liquid-input {
+  position: relative;
+  overflow: hidden;
+}
+
+.liquid-input::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-gold), var(--color-rose));
+  transition: all 0.4s ease;
+  transform: translateX(-50%);
+}
+
+.liquid-input:focus-within::before {
+  width: 100%;
+}
+
+/* ─── Финальные стили ─── */
+.wedding-site {
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.section-spacing {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
+@media (max-width: 768px) {
+  .section-spacing {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+}
